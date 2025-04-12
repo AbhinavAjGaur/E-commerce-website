@@ -10,7 +10,6 @@ const NewArrivals = () => {
   const [scrollLeft, setScollLeft] = useState(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
-  const [scrollRight, setScrollRight] = useState(true);
 
   const newArrivals = [
     {
@@ -144,12 +143,6 @@ const NewArrivals = () => {
       setCanScrollLeft(leftScroll > 0);
       setCanScrollRight(rightScrollable);
     }
-    console.log({
-      scrollLeft: container.scrollLeft || 0,
-      clientWidth: container.clientWidth,
-      containerScrollWidth: container.scrollWidth,
-      offsetLeft: container.offsetLeft,
-    });
   };
 
   useEffect(() => {
@@ -173,8 +166,8 @@ const NewArrivals = () => {
   }, []);
 
   return (
-    <section className="py-16 px-4 lg:px-0">
-      <div className="container mx-auto text-center mb-10 mt-0 relative ">
+    <section className="py-16 px-4 lg:px-5">
+      <div className="container mx-auto text-center mb-10 mt-0 relative">
         <h2 className="text-3xl font-bold mb-4">Explore New Arrivals</h2>
         <p className="text-lg text-gray-600 mb-8">
           Discover the latest styles and trends in our new arrivals collection.
@@ -184,11 +177,11 @@ const NewArrivals = () => {
         <div className="relative right-0 bottom-[-30px] flex space-x-2 ">
           <button
             onClick={() => scroll("left")}
-            disabled={!canScrollLeft}
+            disabled={canScrollLeft}
             className={`p-2 rounded border bg-white text-black ${
               canScrollLeft
-                ? "bg-white text-black"
-                : "bg-gray200 text-gray-400 curnot"
+                ? "bg-gray200 text-gray-400 curnot"
+                : "bg-white text-black "
             }`}
           >
             <FiChevronLeft className="text-2xl" />
