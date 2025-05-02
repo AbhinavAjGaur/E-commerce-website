@@ -10,6 +10,7 @@ interface CartDrawerProps {
 const CartDrawer = ({ drawerOpen, toggleCartDrawer }: CartDrawerProps) => {
   const navigate = useNavigate();
   const handleCheckout = () => {
+    toggleCartDrawer();
     navigate("/checkout");
   };
 
