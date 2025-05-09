@@ -1,47 +1,47 @@
-const express =  require("express");
+const express = require("express");
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
-const {protect} = require("../middleware/authMiddleware");
+const { protect } = require("../middleware/authMiddleware");
 const router = express.Router();
 
 //@route POST /api/users/register
 //@desc Register a new user
 //@access Public
 router.post("/register", async (req, res) => {
-  const {name, email, password} =req.body;
-  try{
+  const { name, email, password } = req.body;
+  try {
     //Register a new user
-    let user =  await User.findOne({email});
+    let user = await User.findOne({ email });
 
-    if(user) return res.status(400).json({message: "User already exists"});
+    if (user) return res.status(400).json({ message: "User already exists" });
 
-    user = new User({name, email, password});
+    user = new User({ name, email, password });
     await user.save();
 
     // Create JWT token
-    const payload = { user: {id: user._id, role: user.role } };
-    
+    const payload = { user: { id: user._id, role: user.role } };
+
     // Sign and return the token along with user data
     jwt.sign(
-      payload, 
-      process.env.JWT_SECRET, 
-      {expiresIn: "40h"}, 
+      payload,
+      process.env.JWT_SECRET,
+      { expiresIn: "40h" },
       (err, token) => {
-      if(err) throw err;
+        if (err) throw err;
 
-      // Send the user and token in response
-      res.status(201).json({
-        user: {
-          _id: user.id,
-          name: user.name,
-          email: user.email,
-          role: user.role,
-        },
-        token,
-      });
-    }
-  );
-  }catch(err){
+        // Send the user and token in response
+        res.status(201).json({
+          user: {
+            _id: user.id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+          },
+          token,
+        });
+      }
+    );
+  } catch (err) {
     console.log(err);
     res.status(500).send("Server Error");
   }
@@ -50,44 +50,44 @@ router.post("/register", async (req, res) => {
 //@route POST /api/users/login
 //@desc Authenticate user and get token
 
-router.post("/login", async (req, res)=>{
-  const {email, password} = req.body;
+router.post("/login", async (req, res) => {
+  const { email, password } = req.body;
 
   try {
     // Find user by email
-    let user = await User.findOne({email});
-    if(!user) return res.status(400).json({message: "Invalid credentials"});
+    let user = await User.findOne({ email });
+    if (!user) return res.status(400).json({ message: "Invalid credentials" });
 
     const isMatch = await user.matchPassword(password);
-    if(!isMatch) return res.status(400).json({message: "Invalid credentials"});
+    if (!isMatch)
+      return res.status(400).json({ message: "Invalid credentials" });
 
-     // Create JWT token
-     const payload = { user: {id: user._id, role: user.role } };
-    
-     // Sign and return the token along with user data
-     jwt.sign(
-       payload, 
-       process.env.JWT_SECRET, 
-       {expiresIn: "40h"}, 
-       (err, token) => {
-       if(err) throw err;
- 
-       // Send the user and token in response
-       res.json({
-         user: {
-           _id: user.id,
-           name: user.name,
-           email: user.email,
-           role: user.role,
-         },
-         token,
-       });
-     }
-   );
+    // Create JWT token
+    const payload = { user: { id: user._id, role: user.role } };
+
+    // Sign and return the token along with user data
+    jwt.sign(
+      payload,
+      process.env.JWT_SECRET,
+      { expiresIn: "40h" },
+      (err, token) => {
+        if (err) throw err;
+
+        // Send the user and token in response
+        res.json({
+          user: {
+            _id: user.id,
+            name: user.name,
+            email: user.email,
+            role: user.role,
+          },
+          token,
+        });
+      }
+    );
   } catch (error) {
     console.log(error);
     res.status(500).send("Server Error");
-    
   }
 });
 
@@ -97,6 +97,6 @@ router.post("/login", async (req, res)=>{
 
 router.get("/profile", protect, async (req, res) => {
   res.json(req.user);
-})
+});
 
 module.exports = router;
