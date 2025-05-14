@@ -54,7 +54,7 @@ const OrderManagement = () => {
                   <td className="p-4">₹{order.totalPrice.toFixed(2)}</td>
                   <td className="p-4">
                     <select
-                      value={order.status}
+                      value={order.orderStatus || order.status}
                       onChange={(e) =>
                         handleStatusChange(order._id, e.target.value)
                       }

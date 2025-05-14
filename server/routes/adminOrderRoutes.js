@@ -24,7 +24,7 @@ router.put("/:id", protect, admin, async (req, res) => {
   try {
     const order = await Order.findById(req.params.id).populate("user", "name");
     if (order) {
-      order.status = req.body.status || order.status;
+      order.orderStatus = req.body.status || order.orderStatus;
       order.deliveredAt =
         req.body.status === "Delivered" ? Date.now() : order.deliveredAt;
 
