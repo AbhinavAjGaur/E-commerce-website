@@ -16,9 +16,17 @@ const adminOrderRoutes = require("./routes/adminOrderRoutes");
 const app = express();
 app.use(express.json());
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: (origin, callback) => {
+    if (origin === 'http://localhost:5173' || origin === 'https://e-commerce-website-hcx3.vercel.app') {
+      callback(null, true); // Allow the origin
+    } else {
+      callback(new Error('Not allowed by CORS')); // Reject other origins
+    }
+  },
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
+
 
 dotenv.config();
 
