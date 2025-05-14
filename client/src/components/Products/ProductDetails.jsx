@@ -21,6 +21,7 @@ const ProductDetails = ({ productId }) => {
   const [quantity, setQuantity] = useState(1);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
+
   const productFetchId = productId || id;
 
   useEffect(() => {
@@ -36,7 +37,7 @@ const ProductDetails = ({ productId }) => {
     }
   }, [selectedProduct]);
 
-  const handleQuantityChange = (action: "plus" | "minus") => {
+  const handleQuantityChange = (action) => {
     if (action === "plus") setQuantity((prev) => prev + 1);
     if (action === "minus" && quantity > 1) setQuantity((prev) => prev - 1);
   };

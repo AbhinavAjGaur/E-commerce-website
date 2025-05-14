@@ -17,30 +17,8 @@ const OrderConfirmationPage = () => {
     }
   }, [checkout, dispatch, navigate]);
 
-  interface CheckoutItem {
-    productId: string;
-    name: string;
-    color: string;
-    size: string;
-    price: number;
-    quantity: number;
-    image: string;
-  }
-
-  interface ShippingAddress {
-    adress: string;
-    city: string;
-    country: string;
-  }
-
-  interface Checkout {
-    _id: string;
-    createdAt: Date;
-    checkoutItems: CheckoutItem[];
-    shippingAddress: ShippingAddress;
-  }
-
-  const calculateEstimateDelivery = (createdAt: Date): string => {
+  
+  const calculateEstimateDelivery = (createdAt) => {
     const orderDate = new Date(createdAt);
     orderDate.setDate(orderDate.getDate() + 10); // Add 10 days to the order date
     return orderDate.toLocaleDateString();

@@ -30,7 +30,7 @@ const UserManagement = () => {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e
   ) => {
     setFormData({
       ...formData,
@@ -38,7 +38,7 @@ const UserManagement = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addUser(formData)).unwrap();
 
@@ -51,29 +51,14 @@ const UserManagement = () => {
     });
   };
 
-  interface User {
-    _id: string;
-    name: string;
-    email: string;
-    role: string;
-  }
-
-  interface FormData {
-    name: string;
-    email: string;
-    password: string;
-    role: string;
-  }
-
-  const handleRoleChange = (userId: string, newRole: string): void => {
+ 
+  const handleRoleChange = (userId, newRole)=> {
     dispatch(updateUser({ id: userId, role: newRole }));
   };
 
-  interface DeleteUserHandler {
-    (userId: string): void;
-  }
 
-  const handleDeleteUser: DeleteUserHandler = (userId) => {
+
+  const handleDeleteUser = (userId) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
       dispatch(deleteUser(userId));
     }
@@ -81,7 +66,7 @@ const UserManagement = () => {
   return (
     <div className="max-w-7xl mx-auto p-6">
       <h2 className="text-2xl font-bold mb4"> User Management</h2>
-      {loading && <p>Loading...</p>}
+      {/* {loading && <p>Loading...</p>} */}
       {error && <p>Error: {error}</p>}
       {/* Add new user form */}
       <div className="p-6 rounded-lg mb-6">

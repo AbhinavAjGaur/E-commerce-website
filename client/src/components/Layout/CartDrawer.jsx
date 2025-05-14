@@ -3,12 +3,9 @@ import CartContents from "../Cart/CartContents";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-interface CartDrawerProps {
-  drawerOpen: boolean;
-  toggleCartDrawer: () => void;
-}
 
-const CartDrawer = ({ drawerOpen, toggleCartDrawer }: CartDrawerProps) => {
+
+const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
   const navigate = useNavigate();
   const {user, guestId} = useSelector((state) => state.auth);
   const {cart} = useSelector((state) => state.cart);

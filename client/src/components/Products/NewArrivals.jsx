@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const NewArrivals = () => {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const scrollRef = useRef (null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScollLeft] = useState(0);
@@ -30,7 +30,7 @@ const NewArrivals = () => {
     fetchNewArrivals();
   }, []);
 
-  const handleMouseDown = (e: React.MouseEvent) => {
+  const handleMouseDown = (e) => {
     setIsDragging(true);
     if (scrollRef.current) {
       setStartX(e.pageX - scrollRef.current.offsetLeft);
@@ -42,9 +42,9 @@ const NewArrivals = () => {
     setIsDragging(false);
   };
 
-  const handleMouseLeave = () => {};
+  const handleMouseLeave = () => { };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleMouseMove = (e) => {
     if (!isDragging) return;
     if (!scrollRef.current) return;
     const x = e.pageX - scrollRef.current.offsetLeft;
@@ -52,7 +52,7 @@ const NewArrivals = () => {
     scrollRef.current.scrollLeft = scrollLeft - walk;
   };
 
-  const scroll = (direction: string) => {
+  const scroll = (direction) => {
     const scrollAmount = direction === "left" ? -250 : 250;
     if (scrollRef.current) {
       scrollRef.current.scrollBy({
@@ -62,7 +62,7 @@ const NewArrivals = () => {
     }
   };
 
-  const updateScrollButtons = (container: HTMLDivElement) => {
+  const updateScrollButtons = (container) => {
     if (container) {
       const leftScroll = container.scrollLeft;
       const rightScrollable =
@@ -76,19 +76,15 @@ const NewArrivals = () => {
   useEffect(() => {
     const container = scrollRef.current;
     if (container) {
-      const handleScroll = (event: Event) => {
-        const target = event.target as HTMLDivElement;
+      const handleScroll = (event) => {
+        const target = event.target;
         updateScrollButtons(target);
       };
       container.addEventListener("scroll", handleScroll);
       updateScrollButtons(container);
-      container.removeEventListener("scroll", handleScroll);
+
       return () => {
         container.removeEventListener("scroll", handleScroll);
-        container.removeEventListener("scroll", (event) => {
-          const target = event.target as HTMLDivElement;
-          updateScrollButtons(target);
-        });
       };
     }
   }, [newArrivals]);
@@ -106,22 +102,20 @@ const NewArrivals = () => {
           <button
             onClick={() => scroll("left")}
             disabled={canScrollLeft}
-            className={`p-2 rounded border bg-white text-black ${
-              canScrollLeft
+            className={`p-2 rounded border bg-white text-black ${canScrollLeft
                 ? "bg-gray200 text-gray-400 curnot"
                 : "bg-white text-black "
-            }`}
+              }`}
           >
             <FiChevronLeft className="text-2xl" />
           </button>
           <button
             onClick={() => scroll("right")}
             disabled={!canScrollRight}
-            className={`p-2 rounded border bg-white text-black ${
-              canScrollRight
+            className={`p-2 rounded border bg-white text-black ${canScrollRight
                 ? "bg-white text-black"
                 : "bg-gray200 text-gray-400 cursor-not-allowed"
-            }`}
+              }`}
           >
             <FiChevronRight className="text-2xl" />
           </button>
@@ -131,9 +125,8 @@ const NewArrivals = () => {
       {/* Scrollable Content */}
       <div
         ref={scrollRef}
-        className={`container mx-auto overflow-x-scroll flex space-x-6 relative ${
-          isDragging ? "cursor-grabbing" : "cursor-grab"
-        } `}
+        className={`container mx-auto overflow-x-scroll flex space-x-6 relative ${isDragging ? "cursor-grabbing" : "cursor-grab"
+          } `}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}

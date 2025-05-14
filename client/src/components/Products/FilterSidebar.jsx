@@ -4,16 +4,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 const FilterSidebar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
-  const [filters, setFilters] = useState<{
-    category: string;
-    gender: string;
-    color: string;
-    size: string[];
-    material: string[];
-    brand: string[];
-    minPrice: number;
-    maxPrice: number;
-  }>({
+  const [filters, setFilters] = useState({
     category: "",
     gender: "",
     color: "",
@@ -25,7 +16,7 @@ const FilterSidebar = () => {
   });
 
   const [priceRange, setPriceRange] = useState([0, 100]);
-  const categories: string[] = ["Top Wear", "Bottom Wear"];
+  const categories= ["Top Wear", "Bottom Wear"];
 
   const colors = [
     "Red",
@@ -90,7 +81,7 @@ const FilterSidebar = () => {
     setPriceRange([0, params.maxPrice ? parseFloat(params.maxPrice) : 100]);
   }, [searchParams]);
 
-  const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFilterChange = (e) => {
     const { name, value, checked, type } = e.target;
     console.log({ name, value, checked, type });
     let newFilters = { ...filters };
@@ -121,7 +112,7 @@ const FilterSidebar = () => {
     navigate(`?${params.toString()}`);
   };
 
-  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePriceChange = (e) => {
     const newPrice = e.target.value;
     setPriceRange([0, newPrice]);
     const newFilters = { ...filters, minPrice: 0, maxPrice: newPrice };
@@ -144,7 +135,7 @@ const FilterSidebar = () => {
               value={category}
               onClick={(e) =>
                 handleFilterChange(
-                  e as unknown as React.ChangeEvent<HTMLInputElement>
+                  e 
                 )
               }
               checked={filters.category === category}

@@ -8,12 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {fetchProductByFilters} from "../redux/slices/productSlice"
 
 const CollectionPage = () => {
-  interface Product {
-    _id: string;
-    name: string;
-    price: number;
-    images: { url: string; alText: string }[];
-  }
+
 
   const {collection} = useParams();
   const [searchParams] = useSearchParams();
@@ -21,7 +16,7 @@ const CollectionPage = () => {
   const {products, loading, error } = useSelector((state) => state.products);
   const queryParams = Object.fromEntries([...searchParams]);
 
-  const sidebarRef = useRef<HTMLDivElement | null>(null);
+  const sidebarRef = useRef(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
@@ -32,9 +27,9 @@ const CollectionPage = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  const handleClickOutside = (e: MouseEvent) => {
+  const handleClickOutside = (e) => {
     //close sidebar if clicked outside
-    if (sidebarRef.current && !sidebarRef.current.contains(e.target as Node)) {
+    if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
       setIsSidebarOpen(false);
     }
   };

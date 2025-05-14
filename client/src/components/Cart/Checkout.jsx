@@ -259,7 +259,7 @@ const Checkout = () => {
             >
               <div className="flex items-start">
                 <img
-                  src={product.image}
+                  src={product.image || "https://picsum.photos/500/500?random=39"}
                   alt={product.name}
                   className="w-20 h-24 object-cover mr-4"
                 />

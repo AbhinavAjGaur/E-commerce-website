@@ -19,7 +19,7 @@ const OrderManagement = () => {
     }
   }, [dispatch, user, navigate])
 
-  const handleStatusChange = (orderId: string, status: string) => {
+  const handleStatusChange = (orderId, status) => {
     dispatch(updateOrderStatus({ id: orderId, status }));
   };
 

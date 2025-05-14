@@ -11,21 +11,7 @@ const EditProductPage = () => {
   const {id} = useParams();
   const {selectedProduct, loading, error} = useSelector((state) => state.products);
 
-  const [productData, setProductData] = useState<{
-    name: string;
-    description: string;
-    price: number;
-    countInStock: number;
-    sku: string;
-    category: string;
-    brand: string;
-    sizes: string[];
-    colors: string[];
-    collections: string;
-    material: string;
-    gender: string;
-    images: { url: string; altText: string }[];
-  }>({
+  const [productData, setProductData] = useState({
     name: "",
     description: "",
     price: 0,
@@ -56,7 +42,7 @@ const EditProductPage = () => {
   }, [selectedProduct]);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e
   ) => {
     const { name, value } = e.target;
     setProductData((prevData) => ({ ...prevData, [name]: value }));
@@ -87,7 +73,7 @@ const EditProductPage = () => {
   }
    };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Submitting product data:", productData);
     dispatch(updateProduct({id, productData}));

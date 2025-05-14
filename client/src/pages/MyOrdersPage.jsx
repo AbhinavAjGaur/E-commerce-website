@@ -5,21 +5,6 @@ import { fetchUserOrders} from "../redux/slices/orderSlice";
 
 
 const MyOrdersPage = () => {
-  interface Order {
-    _id: string;
-    createdAt: Date;
-    shippingAddress: { city: string; country: string };
-    orderItems: {
-      name: string;
-      image: string;
-      price: number;
-      quantity: number;
-      size: string;
-      color: string;
-    }[];
-    totalPrice: number;
-    isPaid: boolean;
-  }
 
   const navigate = useNavigate();
   const dispatch = useDispatch();

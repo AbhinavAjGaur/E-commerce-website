@@ -3,25 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { fetchOrderDetails } from "../redux/slices/orderSlice";
 
-interface OrderDetailsType {
-  _id: string | undefined;
-  createdAt: Date;
-  isPaid: boolean;
-  isDelivered: boolean;
-  paymentMethod: string;
-  shippingMethod: string;
-  shippingAddress: {
-    city: string;
-    country: string;
-  };
-  orderItems: {
-    productId: string;
-    name: string;
-    price: number;
-    quantity: number;
-    image: string;
-  }[];
-}
+
 
 
 const OrderDetails = () => {

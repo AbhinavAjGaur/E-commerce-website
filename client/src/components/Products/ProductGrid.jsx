@@ -1,13 +1,8 @@
 import { Link } from "react-router-dom";
 
-interface Product {
-  _id: string;
-  name: string;
-  images: { url: string; alText?: string }[];
-  price: number;
-}
 
-const ProductGrid = ({ products, loading, error }: { products: Product[] }) => {
+
+const ProductGrid = ({ products, loading, error }) => {
   if (loading) {
     return <p>Loading...</p>;
   }

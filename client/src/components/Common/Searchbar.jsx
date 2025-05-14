@@ -14,7 +14,7 @@ const Searchbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSearch = (e) => {
     e.preventDefault();
     dispatch(setFilters({ search : searchTerm }));
     dispatch(fetchProductByFilters({ search: searchTerm}));
