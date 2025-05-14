@@ -10,7 +10,7 @@ export const fetchUsers = createAsyncThunk("admin/fetchUsers", async () => {
       headers: { Authorization: `Bearer ${localStorage.getItem("userToken")}` },
     }
   );
-  response.data;
+  return response.data;
 });
 
 // Add the create user action
@@ -27,7 +27,7 @@ export const addUser = createAsyncThunk(
           },
         }
       );
-      response.data;
+      return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
@@ -47,7 +47,7 @@ export const updateUser = createAsyncThunk(
         },
       }
     );
-    response.data;
+    return response.data;
   }
 );
 
@@ -103,7 +103,9 @@ const adminSlice = createSlice({
       })
       .addCase(addUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.users.push(action.payload.user); //add a newuser to the state
+        if (action.payload?.user) {
+          state.users.push(action.payload.user);
+        }
       })
       .addCase(addUser.rejected, (state, action) => {
         state.loading = false;

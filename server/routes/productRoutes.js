@@ -94,37 +94,46 @@ router.put("/:id", protect, admin, async (req, res) => {
     const product = await Product.findById(req.params.id);
 
     if (product) {
-      // update the product fields
-      product.name = name || product.name;
-      product.description = description || product.description;
-      product.price = price || product.price;
-      product.discountPrice = discountPrice || product.discountPrice;
-      product.countInStock = countInStock || product.countInStock;
-      product.category = category || product.category;
-      product.brand = brand || product.brand;
-      product.sizes = sizes || product.sizes;
-      product.colors = colors || product.colors;
-      product.collections = collections || product.collections;
-      product.material = material || product.material;
-      product.gender = gender || product.gender;
-      product.images = images || product.images;
-      product.isFeatured =
-        isFeatured !== undefined ? isFeatured : product.isFeatured;
-      product.isPublished =
-        isPublished !== undefined ? isPublished : product.isPublished;
-      product.tags = tags || product.tags;
-      product.dimensions = dimensions || product.dimensions;
-      product.weight = weight || product.weight;
-      product.sku = sku || product.sku;
+      // Update only if values are provided
+      if (name) product.name = name;
+      if (description) product.description = description;
+      if (price !== undefined) product.price = price;
+      if (discountPrice !== undefined) product.discountPrice = discountPrice;
+      if (countInStock !== undefined) product.countInStock = countInStock;
+      if (category) product.category = category;
+      if (brand) product.brand = brand;
+      if (sizes) product.sizes = sizes;
+      if (colors) product.colors = colors;
+      if (collections) product.collections = collections;
+      if (material) product.material = material;
+      if (gender) product.gender = gender;
 
-      // save the updated product
+      // ✅ Safely handle images
+      if (Array.isArray(images)) {
+        const validImages = images.filter(
+          (img) => img && typeof img.url === "string" && img.url.trim() !== ""
+        );
+        if (validImages.length > 0) {
+          product.images = validImages;
+        }
+      }
+
+      // Booleans and optional fields
+      if (isFeatured !== undefined) product.isFeatured = isFeatured;
+      if (isPublished !== undefined) product.isPublished = isPublished;
+      if (tags) product.tags = tags;
+      if (dimensions) product.dimensions = dimensions;
+      if (weight !== undefined) product.weight = weight;
+      if (sku) product.sku = sku;
+
+      // Save the updated product
       const updatedProduct = await product.save();
       res.json(updatedProduct);
     } else {
       res.status(404).json({ message: "Product not found" });
     }
   } catch (error) {
-    console.error(error);
+    console.error("Error updating product:", error.message);
     res.status(500).send("Server Error");
   }
 });

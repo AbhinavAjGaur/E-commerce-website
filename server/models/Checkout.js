@@ -23,6 +23,14 @@ const checkoutItemSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    size: {
+      type: String,
+      required: false,
+    },
+    color: {
+      type: String,
+      required: false,
+    }
   },
   { _id: false }
 );
@@ -40,6 +48,7 @@ const checkoutSchema = new mongoose.Schema(
       city: { type: String, required: true },
       postalCode: { type: String, required: true },
       country: { type: String, required: true },
+      phone: { type: String, required: true },
     },
     paymentMethod: {
       type: String,

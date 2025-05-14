@@ -24,7 +24,7 @@ export const fetchAllOrders = createAsyncThunk(
 // update order deliver status
 export const updateOrderStatus = createAsyncThunk(
   "adminOrders/updateOrderStatus",
-  async (id, status, { rejectWithValue }) => {
+  async ({id, status}, { rejectWithValue }) => {
     try {
       const response = await axios.put(
         `${import.meta.env.VITE_BACKEND_URL}/api/admin/orders/${id}`,
@@ -96,7 +96,7 @@ const adminOrderSlice = createSlice({
       })
       //update order status
       .addCase(updateOrderStatus.fulfilled, (state, action) => {
-        const updatedOrder = action.payload;
+        const updatedOrder = action.payload; 
         const orderIndex = state.orders.findIndex(
           (order) => order._id === updatedOrder._id
         );

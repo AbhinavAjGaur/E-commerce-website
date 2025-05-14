@@ -89,8 +89,15 @@ router.post("/", async (req, res) => {
 // @route PUT /api/cart
 // @desc Update product quantity in the cart for a guest or logged-in user
 // @access Public
-router.put("/", async (req, res) => {
+router.put("/update", async (req, res) => {
+
   const { productId, quantity, size, color, guestId, userId } = req.body;
+
+  if (!productId || !size || !color) {
+  return res.status(400).json({ 
+    message: "Missing required parameters: productId, size, or color"
+  });
+}
 
   try {
     let cart = await getCart(userId, guestId);
@@ -130,8 +137,15 @@ router.put("/", async (req, res) => {
 // @route DELETE /api/cart
 // @desc Remove a product from the cart
 // @access Public
-router.delete("/", async (req, res) => {
+router.delete("/remove", async (req, res) => {
+
   const { productId, size, color, guestId, userId } = req.body;
+
+  if (!productId || !size || !color) {
+  return res.status(400).json({ 
+    message: "Missing required parameters: productId, size, or color"
+  });
+}
 
   try {
     let cart = await getCart(userId, guestId);

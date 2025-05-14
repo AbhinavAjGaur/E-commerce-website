@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { fetchOrderDetails } from "../redux/slices/orderSlice";
 
 interface OrderDetailsType {
   _id: string | undefined;
@@ -7,7 +10,7 @@ interface OrderDetailsType {
   isDelivered: boolean;
   paymentMethod: string;
   shippingMethod: string;
-  ShippingAddress: {
+  shippingAddress: {
     city: string;
     country: string;
   };
@@ -19,42 +22,22 @@ interface OrderDetailsType {
     image: string;
   }[];
 }
-import { Link, useParams } from "react-router-dom";
+
 
 const OrderDetails = () => {
   const { id } = useParams();
-  const [orderDetails, setOrderDetails] = useState<OrderDetailsType | null>(
-    null
-  );
+  const dispatch = useDispatch();
+  const { orderDetails, loading, error } = useSelector((state) => state.orders);
 
   useEffect(() => {
-    const mockOrderDetails = {
-      _id: id,
-      createdAt: new Date(),
-      isPaid: true,
-      isDelivered: false,
-      paymentMethod: "PayPal",
-      shippingMethod: "Standard",
-      ShippingAddress: { city: "New York", country: "USA" },
-      orderItems: [
-        {
-          productId: "1",
-          name: "Jacket",
-          price: 120,
-          quantity: 1,
-          image: "https://picsum.photos/150?random=1",
-        },
-        {
-          productId: "2",
-          name: "T-shirt",
-          price: 150,
-          quantity: 2,
-          image: "https://picsum.photos/150?random=2",
-        },
-      ],
-    };
-    setOrderDetails(mockOrderDetails);
-  }, [id]);
+    dispatch(fetchOrderDetails(id));
+
+  }, [dispatch, id]);
+
+  if(loading) return <p>Loading ...</p>
+  if(error) return <p>Error: {error}</p>
+
+
   return (
     <div className="max-w-7xl mx-auto p-4 sm:p-6">
       <h2 className="text-2xl md:text-3xl font-bold mb-6">Order Details</h2>
@@ -63,7 +46,7 @@ const OrderDetails = () => {
       ) : (
         <div className="p-4 sm:p-6 rounded-lg border">
           {/* Order info */}
-          <div className="flex flex-col sm:flex-row justify-between mb-8">
+          <div className="flex flex-col sm:flex-row justify-between mb-8 scroll-auto">
             <div>
               <h3 className="text-lg md:text-xl font-semibold">
                 Order ID : #{orderDetails._id}
@@ -102,8 +85,8 @@ const OrderDetails = () => {
             </div>
             <div>
               <h4 className="text-lg font-semibold mb-2">Shipping Info</h4>
-              <p>Shippping Method: {orderDetails.shippingMethod}</p>
-              <p>Address : {`${orderDetails.ShippingAddress.city}, ${orderDetails.ShippingAddress.country}`}</p>
+              <p>Shipping Method: {orderDetails.shippingMethod}</p>
+              <p>Address : {`${orderDetails.shippingAddress.city}, ${orderDetails.shippingAddress.country}`}</p>
             </div>
           </div>
           {/* Product list */}

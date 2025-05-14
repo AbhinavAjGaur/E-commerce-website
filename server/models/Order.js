@@ -1,33 +1,36 @@
 const mongoose = require("mongoose");
 
-const orderItemSchema = new mongoose.Schema(
-  {
-    productId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Product",
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    image: {
-      type: String,
-      required: true,
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
-    size: String,
-    color: String,
-    quantity: {
-      type: Number,
-      required: true,
-    },
+const orderItemSchema = new mongoose.Schema({
+  product: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Product',
+    required: true
   },
-  { _id: false }
-);
+  name: {
+    type: String,
+    required: true
+  },
+   image: {
+    type: String,
+    required: [true, 'Product image is required'],
+    validate: {
+      validator: function(v) {
+        return v && v.trim().length > 0;
+      },
+      message: 'Product image cannot be empty'
+    }
+  },
+  price: {
+    type: Number,
+    required: true
+  },
+  quantity: {
+    type: Number,
+    required: true
+  },
+  size: String,
+  color: String
+}, { _id: false });
 
 const orderSchema = new mongoose.Schema(
   {
@@ -37,15 +40,16 @@ const orderSchema = new mongoose.Schema(
       required: true,
     },
     orderItems: [orderItemSchema],
-    shippingAdress: {
+    shippingAddress: {
       address: { type: String, required: true },
       city: { type: String, required: true },
       postalCode: { type: String, required: true },
       country: { type: String, required: true },
+      phone: { type: String, required: true },
     },
     paymentMethod: {
       type: String,
-      requred: true,
+      required: true,
     },
     totalPrice: {
       type: Number,
@@ -60,7 +64,7 @@ const orderSchema = new mongoose.Schema(
     },
     isDelivered: {
       type: Boolean,
-      required: false,
+      default: false,
     },
     deliveredAt: {
       type: Date,
@@ -69,13 +73,16 @@ const orderSchema = new mongoose.Schema(
       type: String,
       default: "pending",
     },
-    status: {
+    paymentDetails: {
+      type: mongoose.Schema.Types.Mixed,
+    },
+    orderStatus: {
       type: String,
-      enum: ["Processing", "Shipped", "Delivered", "Cancelled"],
       default: "Processing",
+      enum: ["Processing", "Shipped", "Delivered", "Cancelled"],
     },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("order", orderSchema);
+module.exports = mongoose.model("Order", orderSchema);

@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { act } from "react";
 
 // Helper function to load cart from localStorage
 const loadCartFromStorage = () => {
@@ -36,7 +35,7 @@ export const fetchCart = createAsyncThunk(
 export const addToCart = createAsyncThunk(
   "cart/addToCart",
   async (
-    { productId, quantity, size, color, guestId, userId },
+    { productId, quantity, size, color, image, guestId, userId },
     { rejectWithValue }
   ) => {
     try {
@@ -47,6 +46,7 @@ export const addToCart = createAsyncThunk(
           quantity,
           size,
           color,
+          image,
           guestId,
           userId,
         }
@@ -62,12 +62,12 @@ export const addToCart = createAsyncThunk(
 export const updateCartItemQuantity = createAsyncThunk(
   "cart/updateCartItemQuantity",
   async (
-    { productId, quantity, guestId, userId, size, color },
+    { productId, quantity, guestId, userId, size, color, image },
     { rejectWithValue }
   ) => {
     try {
       const response = await axios.put(
-        `${import.meta.env.VITE_BACKEND_URL}/api/cart`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/cart/update`,
         {
           productId,
           quantity,
@@ -75,6 +75,7 @@ export const updateCartItemQuantity = createAsyncThunk(
           userId,
           size,
           color,
+          image,
         }
       );
       return response.data;
@@ -87,12 +88,12 @@ export const updateCartItemQuantity = createAsyncThunk(
 // Remove an item from the cart
 export const removeFromCart = createAsyncThunk(
   "cart/removeFromCart",
-  async ({ productId, guestId, userId, size, color }, { rejectWithValue }) => {
+  async ({ productId, guestId, userId, size, color, image }, { rejectWithValue }) => {
     try {
       const response = await axios({
         method: "DELETE",
-        url: `${import.meta.env.VITE_BACKEND_URL}/api/cart`,
-        data: { productId, guestId, userId, size, color },
+        url: `${import.meta.env.VITE_BACKEND_URL}/api/cart/remove`,
+        data: { productId, guestId, userId, size, color, image },
       });
       return response.data;
     } catch (error) {
@@ -142,7 +143,7 @@ const cartSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchCart.fulfilled, (state, action) => {
-        state.loading = true;
+        state.loading = false;
         state.cart = action.payload;
         saveCartToStorage(action.payload);
       })

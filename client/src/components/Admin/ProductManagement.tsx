@@ -1,22 +1,25 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { fetchAdminProducts, deleteProduct } from "../../redux/slices/adminProductSlice"
 const ProductManagement = () => {
 
-  const products = [
-    {
-      _id : 1123,
-      name: "Shirt",
-      price: "123",
-      sku: "12312432"
-    },
-  ];
+  const dispatch = useDispatch();
+  const {products, loading, error} = useSelector((state) => state.adminProducts);
 
-  const handleDelete = (id: number) => {
+  useEffect(() => {
+    dispatch(fetchAdminProducts());
+  }, [dispatch]);
+
+  const handleDelete = (id: string) => {
     if(window.confirm("Are you sure you want to delete this product?")){
-      console.log("Delete product with id:", id);
+      dispatch(deleteProduct(id));
       
     }
   }
+
+  if(loading) return <p>Loading...</p>
+  if(error) return <p>Error: {error}</p>
 
   return (
     <div className="max-w-7xl mx-auto p-6">
