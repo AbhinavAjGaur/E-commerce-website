@@ -16,11 +16,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=39",
+        url: "https://m.media-amazon.com/images/I/71I2JYu-YBL._SX466_.jpg",
         altText: "Classic Oxford Button-Down Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=40",
+        url: "https://m.media-amazon.com/images/I/81XyFM82xKL._SX466_.jpg",
         altText: "Classic Oxford Button-Down Shirt Back View",
       },
     ],
@@ -44,11 +44,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=41",
+        url: "https://m.media-amazon.com/images/I/51nUFLdiMAL._SY606_.jpg",
         altText: "Slim-Fit Stretch Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=42",
+        url: "https://m.media-amazon.com/images/I/71R-E74D9QL._SX466_.jpg",
         altText: "Slim-Fit Stretch Shirt Back View",
       },
     ],
@@ -72,11 +72,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=43",
+        url: "https://m.media-amazon.com/images/I/81uTb5UwUgL._SY879_.jpg",
         altText: "Casual Denim Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=44",
+        url: "https://m.media-amazon.com/images/I/81OACJ3TMlL._SY741_.jpg",
         altText: "Casual Denim Shirt Back View",
       },
     ],
@@ -100,11 +100,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=45",
+        url: "https://m.media-amazon.com/images/I/51f3VRIGQIL.jpg",
         altText: "Printed Resort Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=1",
+        url: "https://m.media-amazon.com/images/I/51k8tFgcc9L._SY741_.jpg",
         altText: "Printed Resort Shirt Back View",
       },
     ],
@@ -128,11 +128,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=47",
+        url: "https://m.media-amazon.com/images/I/81Be4hgx1gL._SY879_.jpg",
         altText: "Slim-Fit Easy-Iron Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=2",
+        url: "https://m.media-amazon.com/images/I/81yzX+y7Q5L._SX569_.jpg",
         altText: "Slim-Fit Easy-Iron Shirt Front View",
       },
     ],
@@ -156,11 +156,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=3",
+        url: "https://m.media-amazon.com/images/I/71aFqco50fL._SY879_.jpg",
         altText: "Polo T-Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=4",
+        url: "https://m.media-amazon.com/images/I/71kgvYBsKUL._SX569_.jpg",
         altText: "Polo T-Shirt Back View",
       },
     ],
@@ -184,9 +184,13 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=5",
+        url: "https://m.media-amazon.com/images/I/515fqFsrykL._SX679_.jpg",
         altText: "Oversized Graphic T-Shirt Front View",
       },
+      {
+        url: "https://m.media-amazon.com/images/I/51JeU6JQaWL._SX679_.jpg",
+        altText: "Oversized Graphic T-Shirt Front View",
+      }
     ],
     rating: 4.6,
     numReviews: 30,
@@ -208,8 +212,12 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=6",
+        url: "https://m.media-amazon.com/images/I/715Rnn+kpVL._SY741_.jpg",
         altText: "Regular-Fit Henley Shirt Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/71YfiuOX+sL._SY741_.jpg",
+        altText: "Regular-Fit Henley Shirt Rear View",
       },
     ],
     rating: 4.5,
@@ -232,7 +240,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=7",
+        url: "https://m.media-amazon.com/images/I/31Wknn8COEL.jpg",
+        altText: "Long-Sleeve Thermal Tee Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/31+n6KQRWGL.jpg",
         altText: "Long-Sleeve Thermal Tee Front View",
       },
     ],
@@ -256,7 +268,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=8",
+        url: "https://m.media-amazon.com/images/I/71AeuUL-RIL._SY879_.jpg",
+        altText: "V-Neck Classic T-Shirt Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/71UETrdVzoL._SY741_.jpg",
         altText: "V-Neck Classic T-Shirt Front View",
       },
     ],
@@ -280,7 +296,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=9",
+        url: "https://m.media-amazon.com/images/I/71lhBBi2nsL._SX679_.jpg",
+        altText: "Slim Fit Joggers Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/61OxDEvjosL._SY741_.jpg",
         altText: "Slim Fit Joggers Front View",
       },
     ],
@@ -304,7 +324,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=10",
+        url: "https://m.media-amazon.com/images/I/61-MhFCuzaL._SY879_.jpg",
+        altText: "Cargo Joggers Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/71TsCUfDakL._SY741_.jpg",
         altText: "Cargo Joggers Front View",
       },
     ],
@@ -328,7 +352,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=11",
+        url: "https://m.media-amazon.com/images/I/612jkJuEuIL._SX679_.jpg",
+        altText: "Tapered Sweatpants Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/61XJhsnKXUL._SY741_.jpg",
         altText: "Tapered Sweatpants Front View",
       },
     ],
@@ -352,7 +380,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=12",
+        url: "https://m.media-amazon.com/images/I/616xchp1ECL._SY879_.jpg",
+        altText: "Denim Jeans Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/61W0Ucal3hL._SY741_.jpg",
         altText: "Denim Jeans Front View",
       },
     ],
@@ -376,7 +408,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=13",
+        url: "https://m.media-amazon.com/images/I/71HLtFruG3L._SY879_.jpg",
+        altText: "Chino Pants Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/71WxZF2vEiL._SX569_.jpg",
         altText: "Chino Pants Front View",
       },
     ],
@@ -400,7 +436,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=14",
+        url: "https://m.media-amazon.com/images/I/51QcRza6TfL._SX679_.jpg",
+        altText: "Track Pants Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/71OnrzRzN5L._SX679_.jpg",
         altText: "Track Pants Front View",
       },
     ],
@@ -424,7 +464,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=15",
+        url: "https://m.media-amazon.com/images/I/71aG7zGkEML._SX569_.jpg",
+        altText: "Slim Fit Trousers Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/71roJPdmbSL._SY879_.jpg",
         altText: "Slim Fit Trousers Front View",
       },
     ],
@@ -448,7 +492,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=16",
+        url: "https://m.media-amazon.com/images/I/61oYWs35bJL._SY879_.jpg",
+        altText: "Cargo Pants Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/61Yqdd0KhYL._SY741_.jpg",
         altText: "Cargo Pants Front View",
       },
     ],
@@ -472,7 +520,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=17",
+        url: "https://m.media-amazon.com/images/I/51efXl8NOnL._SY879_.jpg",
+        altText: "Relaxed Fit Sweatpants Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/61+nR0Jb2pL._SY741_.jpg",
         altText: "Relaxed Fit Sweatpants Front View",
       },
     ],
@@ -496,7 +548,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=18",
+        url: "https://m.media-amazon.com/images/I/71OonZeCePL._SX569_.jpg",
+        altText: "Formal Dress Pants Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/712uA9qBPZL._SX569_.jpg",
         altText: "Formal Dress Pants Front View",
       },
     ],
@@ -520,7 +576,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=19",
+        url: "https://m.media-amazon.com/images/I/71iurtvXfHL._SY550_.jpg",
+        altText: "High-Waist Skinny Jeans",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/611Ka32K7zL._SY550_.jpg",
         altText: "High-Waist Skinny Jeans",
       },
     ],
@@ -544,7 +604,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=20",
+        url: "https://m.media-amazon.com/images/I/51AUDm-XNwL._SY679_.jpg",
+        altText: "Wide-Leg Trousers Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/61yuLPegwlL._SY550_.jpg",
         altText: "Wide-Leg Trousers Front View",
       },
     ],
@@ -568,7 +632,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=21",
+        url: "https://m.media-amazon.com/images/I/511Lg71-DvL._SY679_.jpg",
+        altText: "Stretch Leggings Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/51quLheKAXL._SY550_.jpg",
         altText: "Stretch Leggings Front View",
       },
     ],
@@ -592,7 +660,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=22",
+        url: "https://m.media-amazon.com/images/I/613rHBNg86L._SX466_.jpg",
+        altText: "Pleated Midi Skirt Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/71ZzfO7SEQL._SY550_.jpg",
         altText: "Pleated Midi Skirt Front View",
       },
     ],
@@ -616,7 +688,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=23",
+        url: "https://m.media-amazon.com/images/I/61pqJoXUKzL._SY679_.jpg",
+        altText: "Flared Palazzo Pants Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/71WA8TxtnxL._SY550_.jpg",
         altText: "Flared Palazzo Pants Front View",
       },
     ],
@@ -640,7 +716,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=24",
+        url: "https://m.media-amazon.com/images/I/61Q2cRs90uL._SY550_.jpg",
+        altText: "High-Rise Joggers Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/81Jufn3xgIL._SY550_.jpg",
         altText: "High-Rise Joggers Front View",
       },
     ],
@@ -664,7 +744,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=25",
+        url: "https://m.media-amazon.com/images/I/71caYSD7itL._SY550_.jpg",
+        altText: "Paperbag Waist Shorts Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/71dwfGI4SML._SY550_.jpg",
         altText: "Paperbag Waist Shorts Front View",
       },
     ],
@@ -688,7 +772,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=26",
+        url: "https://m.media-amazon.com/images/I/71-Uo9jZ6RL._SY550_.jpg",
+        altText: "Stretch Denim Shorts Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/71wvXYNsgmL._SY550_.jpg",
         altText: "Stretch Denim Shorts Front View",
       },
     ],
@@ -712,7 +800,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=27",
+        url: "https://m.media-amazon.com/images/I/41wTVQYvC5L._SY500_.jpg",
+        altText: "Culottes Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/41RDv4FoSyL._SY500_.jpg",
         altText: "Culottes Front View",
       },
     ],
@@ -736,7 +828,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=28",
+        url: "https://m.media-amazon.com/images/I/61ZKp-pEtqL._SY550_.jpg",
+        altText: "Classic Pleated Trousers Front View",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/61-a2KXWtQL._SY550_.jpg",
         altText: "Classic Pleated Trousers Front View",
       },
     ],
@@ -760,7 +856,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=29",
+        url: "https://m.media-amazon.com/images/I/61kSlIAqRwL._SY550_.jpg",
+        altText: "Knitted Cropped Top",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/61-mMFlOpIL._SY550_.jpg",
         altText: "Knitted Cropped Top",
       },
     ],
@@ -784,7 +884,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=30",
+        url: "https://m.media-amazon.com/images/I/81RD67rmMgL._SY679_.jpg",
+        altText: "Boho Floral Blouse",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/91quQhQoBgL._SY550_.jpg",
         altText: "Boho Floral Blouse",
       },
     ],
@@ -808,7 +912,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=31",
+        url: "https://m.media-amazon.com/images/I/61hLb3DSS4L._SY679_.jpg",
+        altText: "Casual T-Shirt",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/61lLu3N0lmL._SY550_.jpg",
         altText: "Casual T-Shirt",
       },
     ],
@@ -832,7 +940,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=32",
+        url: "https://m.media-amazon.com/images/I/71F7dqNrNfL._SY550_.jpg",
+        altText: "Off-Shoulder Top",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/61NIBHG1ufL._SY550_.jpg",
         altText: "Off-Shoulder Top",
       },
     ],
@@ -856,7 +968,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=33",
+        url: "https://m.media-amazon.com/images/I/51bjSaHdzOL._SX679_.jpg",
+        altText: "Lace-Trimmed Cami Top",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/41nhE-X-sPS.jpg",
         altText: "Lace-Trimmed Cami Top",
       },
     ],
@@ -880,7 +996,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=34",
+        url: "https://m.media-amazon.com/images/I/61KsL0qQuKL._SY550_.jpg",
+        altText: "Graphic Print Tee",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/61kffU0Hv+L._SY550_.jpg",
         altText: "Graphic Print Tee",
       },
     ],
@@ -904,7 +1024,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=35",
+        url: "https://m.media-amazon.com/images/I/51nGPLdNqLL._SY679_.jpg",
+        altText: "Ribbed Long-Sleeve Top",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/61p0AsNcxHL._SY550_.jpg",
         altText: "Ribbed Long-Sleeve Top",
       },
     ],
@@ -928,7 +1052,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=36",
+        url: "https://m.media-amazon.com/images/I/41pgUlv9p5L._SY500_.jpg",
+        altText: "Ruffle-Sleeve Blouse",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/41VBdAqH9kL._SY500_.jpg",
         altText: "Ruffle-Sleeve Blouse",
       },
     ],
@@ -952,7 +1080,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=37",
+        url: "https://m.media-amazon.com/images/I/41SXC8TtIAL._SY606_.jpg",
+        altText: "Classic Button-Up Shirt",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/417J4c1LwML._SY500_.jpg",
         altText: "Classic Button-Up Shirt",
       },
     ],
@@ -976,7 +1108,11 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=38",
+        url: "https://m.media-amazon.com/images/I/61yghaZnVpL._SY679_.jpg",
+        altText: "V-Neck Wrap Top",
+      },
+      {
+        url: "https://m.media-amazon.com/images/I/61wzSDQEtCL._SY550_.jpg",
         altText: "V-Neck Wrap Top",
       },
     ],
